@@ -1,6 +1,7 @@
 function generateMatrices() {
     createMatrix('The 1st Matrix', 'matrix1', document.getElementById('matrix1Rows').value, document.getElementById('matrix1Cols').value);
     createMatrix('The 2nd Matrix','matrix2', document.getElementById('matrix2Rows').value, document.getElementById('matrix2Cols').value);
+    createMatrix('The 3rd Matrix','matrix3', document.getElementById('matrix3Rows').value, document.getElementById('matrix3Cols').value);
 }
 
 const createMatrix = (title, containerId, rows, cols) => {
@@ -67,7 +68,16 @@ function performOperation(operation) {
     // For example: if (operation === 'add') { addMatrices(matrix1, matrix2); }
 	// prints suitable messages for impossible situation
     if (operation == 'add'){
-        addMatrices(matrix1, matrix2)
+        addMatrices(matrix1, matrix2);
+        let matrix3 = getMatrixData2D('matrix3');
+        console.log('3rd Matrix', matrix3);
+        
+    }
+    if (operation == 'sub'){
+        subtractMatrices(matrix1, matrix2);
+    }
+    if (operation == "multiply"){
+        multiplyMatrices(matrix1, matrix2);
     }
     showResult('The Result', 'matrix3', 1, 4, result); // use suitable function for printing results
 }
@@ -107,15 +117,26 @@ const getMatrixData2D = function (matrixId) {
 // Add your matrix calculation functions here
 // The functions must check the posibility of calculation too.
 function addMatrices(matrix1, matrix2){ 
-    // let rows1 = document.getElementById(matrix1+'Rows').value;
-    // let rows2 = document.getElementById(matrix2+'Cols').value;
-    // let cols1 = document.getElementById('matrix1Cols').value;
-    // let cols2 = document.getElementById('matrix2Cols').value;
-    // console.log("1st row",rows1)
-    // console.log("2nd row",rows2)
-    // console.log("1st col",cols1)
-    // console.log("2nd col",cols2)
-    let test = getMatrix(matrix1)
+
+    let rows1 = parseInt(document.getElementById('matrix1Rows').value, 10);
+    let rows2 = parseInt(document.getElementById('matrix2Rows').value, 10);
+    let cols1 = parseInt(document.getElementById('matrix1Cols').value, 10);
+    let cols2 = parseInt(document.getElementById('matrix2Cols').value, 10);
+    if (rows1 == rows2){
+        if (cols1 == cols2){
+            let matrix3 = getMatrixData2D('matrix3');
+            for (let i = 0; i<rows1; i++){
+                let rowData = [];
+                for (let j = 0; j < cols1; j++){
+                    rowData.push(matrix1[i][j] + matrix2[i][j]);
+                }
+                matrix3.push(rowData);
+            }      
+        }
+    }
+    else{
+        console.log("Unequal dimensions");
+    }
 }
 const subtractMatrices = function (matrix1, matrix2) { 
 	// provide the code
