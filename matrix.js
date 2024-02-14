@@ -66,7 +66,10 @@ function performOperation(operation) {
     // Call your matrix calculation functions here
     // For example: if (operation === 'add') { addMatrices(matrix1, matrix2); }
 	// prints suitable messages for impossible situation
-    showResult('The Result', 'matrix3', 2, 4, result); // use suitable function for printing results
+    if (operation == 'add'){
+        addMatrices(matrix1, matrix2)
+    }
+    showResult('The Result', 'matrix3', 1, 4, result); // use suitable function for printing results
 }
 
 const getMatrixData1D = function (matrixId) {
@@ -104,7 +107,15 @@ const getMatrixData2D = function (matrixId) {
 // Add your matrix calculation functions here
 // The functions must check the posibility of calculation too.
 function addMatrices(matrix1, matrix2){ 
-	// provide the code
+    // let rows1 = document.getElementById(matrix1+'Rows').value;
+    // let rows2 = document.getElementById(matrix2+'Cols').value;
+    // let cols1 = document.getElementById('matrix1Cols').value;
+    // let cols2 = document.getElementById('matrix2Cols').value;
+    // console.log("1st row",rows1)
+    // console.log("2nd row",rows2)
+    // console.log("1st col",cols1)
+    // console.log("2nd col",cols2)
+    let test = getMatrix(matrix1)
 }
 const subtractMatrices = function (matrix1, matrix2) { 
 	// provide the code
