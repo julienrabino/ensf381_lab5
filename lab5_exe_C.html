@@ -243,6 +243,7 @@ Description : DOM Elements.
 					pElement.style.color = "red";
 					var aboutUsSection = document.querySelector('.container section');
 					aboutUsSection.appendChild(pElement);
+
 				// Task 5: Add placeholders to input elements based on their corresponding label IDs
 					var nameElement = document.querySelector('form #name')
 					nameElement.placeholder = "Name"
@@ -250,6 +251,7 @@ Description : DOM Elements.
 					emailElement.placeholder = "Email"
 					var messageElement = document.querySelector('form #message')
 					messageElement.placeholder = "Message"
+
 				// Task 6: Set the src attribute of the image
 					document.getElementsByTagName('img')[0].src ="images/example.svg" ;
 					
@@ -259,6 +261,7 @@ Description : DOM Elements.
 					aElement.textContent = 'Blog';
 					aElement.href = '#'
 					parentNav.appendChild(aElement);
+
 				// Task 8: Change the submit button text upon clicking and make it disabled
 
 					var inputElement = document.getElementsByTagName('input')
@@ -266,10 +269,12 @@ Description : DOM Elements.
 					for (i = 0; i<inputElement.length; i++){
 						if (inputElement[i].type == 'button'){
 							inputElement[i].onclick = disableButton;
+
 							break;
 						}
 					}
 					function disableButton(){
+						this.value = 'Submitted';
 						this.disabled = true;
 					}
 				// Task 9: Change the text color of each item in the 'Related Links' to green
